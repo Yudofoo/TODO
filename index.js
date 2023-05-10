@@ -3,6 +3,7 @@ const input = document.getElementById("input");
 const ul = document.getElementById("ul")
 
 const todos = JSON.parse(localStorage.getItem("todos"));
+const clearBtn = document.getElementById("clear");
 
 if (todos) {
     todos.forEach(todo => {
@@ -61,3 +62,8 @@ form.addEventListener("submit", function (event) {
         });
         localStorage.setItem("todos", JSON.stringify(todos)); "ローカルストレージでは文字列で保存されるためJSONに"
     }
+
+clearBtn.addEventListener("click", function () {
+    localStorage.clear();
+    ul.innerHTML = "";
+});
