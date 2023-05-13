@@ -4,9 +4,9 @@ const ul = document.getElementById("ul")
 
 const todos = JSON.parse(localStorage.getItem("todos"));
 
-if (todos) {
-    todos.forEach(todo => {
-        add(todo);
+if (todos) { "文字列todosが空じゃない"
+    todos.forEach(todo => { "個々の要素はtodo"
+        add(todo); "引数を受け取る場所を作る必要！"
     })
 }
 
@@ -15,10 +15,10 @@ form.addEventListener("submit", function (event) {
     add();
     });
 
-    function add(todo) {
+    function add(todo) { "引数を受け取る"
         let todoText = input.value; "入力した値を変数宣言"
 
-        if (todo) {
+        if (todo) { "todoを取ってきたとき"
             todoText = todo.text;
         }
 
@@ -29,22 +29,22 @@ form.addEventListener("submit", function (event) {
 
         if (todo && todo.completed) {
             li.classList.add("text-decoration-line-through");
-        }
+        } "リロードした際にも線を残す"
 
-        li.addEventListener("contextmenu", function (event) {
-            event.preventDefault();
+        li.addEventListener("contextmenu", function (event) { "contextmenuで右クリック処理"
+            event.preventDefault(); "右クリックのデフォルト処理を無効化"
             li.remove();
             saveData();
         });
 
         li.addEventListener("click", function () {
-            li.classList.toggle("text-decoration-line-through");
+            li.classList.toggle("text-decoration-line-through"); "toggleは()内がなければつけるしあれば消す ON/OFF"
             saveData();
         });
 
         ul.appendChild(li);
         input.value = "";
-        saveData();
+        saveData(); "なぜこの関数でローカルストレージから消せるのか？"
         }
     }
 
@@ -53,9 +53,9 @@ form.addEventListener("submit", function (event) {
         let todos = [];
 
         lists.forEach(list => {
-            let todo = {
+            let todo = { 
                 text: list.innerText,
-                completed: list.classList.contains("text-decoration-line-through")
+                completed: list.classList.contains("text-decoration-line-through") 
             };
             todos.push(todo); "todosにtodoに格納していく todos配列を用いることでのちのち追加機能などを楽に"
         });
