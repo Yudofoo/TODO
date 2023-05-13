@@ -37,6 +37,14 @@ form.addEventListener("submit", function (event) {
             saveData();
         });
 
+        li.addEventListener("dblclick", function(){
+            const editText = prompt("TODOを編集:", li.innerText);
+            if (editText) {
+                li.innerText = editText;
+                saveData();
+            }
+        })
+
         li.addEventListener("click", function () {
             li.classList.toggle("text-decoration-line-through"); "toggleは()内がなければつけるしあれば消す ON/OFF"
             saveData();
