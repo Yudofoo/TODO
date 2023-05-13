@@ -1,6 +1,7 @@
 const form = document.getElementById("form");
 const input = document.getElementById("input");
 const ul = document.getElementById("ul")
+const clear = document.getElementById("clear")
 
 const todos = JSON.parse(localStorage.getItem("todos"));
 
@@ -55,6 +56,11 @@ form.addEventListener("submit", function (event) {
         saveData(); "なぜこの関数でローカルストレージから消せるのか？"
         }
     }
+
+    clear.addEventListener("click", function() {
+        const li = document.createElement("li");
+        localStorage.clear();
+    })
 
     function saveData() {
         const lists = document.querySelectorAll("li"); "document内のliタグを全て取得(list-group-item)"
