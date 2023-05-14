@@ -58,8 +58,11 @@ form.addEventListener("submit", function (event) {
     }
 
     clear.addEventListener("click", function() {
-        localStorage.clear();
-        ul.innerText = "";
+        var result = window.confirm("本当に削除しますか？");
+        if(result) {
+            localStorage.clear();
+            ul.innerText = "";
+        }
     })
 
     function saveData() {
