@@ -58,8 +58,8 @@ form.addEventListener("submit", function (event) {
     }
 
     clear.addEventListener("click", function() {
-        const li = document.createElement("li");
         localStorage.clear();
+        ul.innerText = "";
     })
 
     function saveData() {
